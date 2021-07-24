@@ -1,0 +1,11 @@
+[core]
+	editor = \"C:\\Users\\kadu_\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" --wait
+	longpaths = true
+[user]
+	name = Wesly
+	email = weslyramalho@yahoo.com.br
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

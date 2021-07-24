@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+
+.App-header {
+  width: 1440px;
+  height: 768px;
+  margin: 0px 0 204px;
+  padding: 354px 261px 166px;
+  object-fit: contain;
+  transform: rotate(-90deg);
+  background-image: linear-gradient(to top, rgba(93, 212, 255, 0.11), #ffffff);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
