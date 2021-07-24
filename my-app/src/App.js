@@ -21,7 +21,6 @@ const Page = (props) => {
   );
 }
 
-}
 
 const mapDispatchToProps = (dispatch) => {
   return {
