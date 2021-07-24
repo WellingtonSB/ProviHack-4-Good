@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const connection_1 = __importDefault(require("../db/connection"));
-const Usuario = connection_1.default.define('Usuario', {
+const Usuario = connection_1.default.define('Usuarie', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     nome: {
         type: sequelize_1.DataTypes.STRING
@@ -20,19 +20,19 @@ const Usuario = connection_1.default.define('Usuario', {
     senha: {
         type: sequelize_1.DataTypes.STRING,
     },
-    dataNascimento: {
+    data_nascimento: {
         type: sequelize_1.DataTypes.DATE
     },
-    genero: {
-        type: sequelize_1.DataTypes.STRING
+    id_genero: {
+        type: sequelize_1.DataTypes.INTEGER
     },
     etnia: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.INTEGER
     },
     escolaridade: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.INTEGER
     },
-    areaAtuacao: {
+    tipodeficiencia: {
         type: sequelize_1.DataTypes.STRING
     },
     experienciaTrabalho: {

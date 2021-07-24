@@ -18,7 +18,7 @@ export const getUsuarioById = async (req: Request, res: Response) => {
     }
 
 }
-
+//fazer um console.log(hac)
 export const postUsuario = async (req: Request, res: Response) => {
     const { body } = req;
     try {

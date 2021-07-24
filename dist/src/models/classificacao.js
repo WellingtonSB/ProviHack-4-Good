@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const connection_1 = __importDefault(require("../db/connection"));
 const Classificacao = connection_1.default.define('Classificacao', {
-    //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
+    id: { type: sequelize_1.DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     remunecaoBeneficios: {
         type: sequelize_1.DataTypes.NUMBER
     }, culturaValores: {

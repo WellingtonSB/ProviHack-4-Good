@@ -5,23 +5,18 @@ const Vaga = db.define('vaga', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     nome: {
         type: DataTypes.STRING,
-        allowNull: false
     },
-    descricao: {
+    descricao_vaga: {
         type: DataTypes.STRING,
-        allowNull: false
     },
-    endereco: {
+    beneficios: {
         type: DataTypes.STRING,
-        allowNull: false
     },
-    escolaridade: {
+    salario: {
         type: DataTypes.STRING,
-        allowNull: false
     },
-    tipoVaga: {
+    link_site: {
         type: DataTypes.STRING,
-        allowNull: false
     },
     status: {
         type: DataTypes.BOOLEAN

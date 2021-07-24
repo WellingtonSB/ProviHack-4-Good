@@ -9,23 +9,18 @@ const Vaga = connection_1.default.define('vaga', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     nome: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
-    descricao: {
+    descricao_vaga: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
-    endereco: {
+    beneficios: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
-    escolaridade: {
+    salario: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
-    tipoVaga: {
+    link_site: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
     status: {
         type: sequelize_1.DataTypes.BOOLEAN
