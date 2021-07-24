@@ -49,7 +49,7 @@ class Server{
         this.app.use(this.apiPaths.usuarios,userRoutes);
         this.app.use(this.apiPaths.vagas,vagasRoutes);
         this.app.use(this.apiPaths.classificacao,classificacaoRoutes);
-        this.app.use(this.apiPaths.empresas,userRoutes);
+        this.app.use(this.apiPaths.empresas,empressasRoutes);
     }
 
     listen(){

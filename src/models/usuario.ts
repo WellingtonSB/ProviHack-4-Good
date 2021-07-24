@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import db from '../db/connection';
 
+
 const Usuario = db.define('Usuario', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     nome: {
@@ -10,10 +11,11 @@ const Usuario = db.define('Usuario', {
         type: DataTypes.STRING
     },
     email: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        unique:true,//unica
     },
     senha: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
     },
     dataNascimento: {
         type: DataTypes.DATE
@@ -41,7 +43,14 @@ const Usuario = db.define('Usuario', {
     },
     estadoCivil: {
         type: DataTypes.STRING
+    },
+    createdAt:{
+        type:DataTypes.DATE,
+        defaultValue:Date.now,
     }
 })
+
+
+
 
 export default Usuario;

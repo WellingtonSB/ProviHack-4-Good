@@ -23,9 +23,10 @@ export const getEmpressaById = async (req: Request, res: Response) => {
 export const postEmpressa = async (req: Request, res: Response) => {
     const { body } = req;
     try {
-        /*   const empressa = new Empressa(body);
-  await empressa.save();
-  res.json(empressa); */
+        const empressa = await Empressa.create(body);
+        await empressa.save();
+        res.json(empressa);
+        
     } catch (error) {
         res.status(500).json({
             msg: 'Verificar campos'

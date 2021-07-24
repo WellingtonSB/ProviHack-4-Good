@@ -14,10 +14,11 @@ const Usuario = connection_1.default.define('Usuario', {
         type: sequelize_1.DataTypes.STRING
     },
     email: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.STRING,
+        unique: true, //unica
     },
     senha: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.STRING,
     },
     dataNascimento: {
         type: sequelize_1.DataTypes.DATE
@@ -45,6 +46,10 @@ const Usuario = connection_1.default.define('Usuario', {
     },
     estadoCivil: {
         type: sequelize_1.DataTypes.STRING
+    },
+    createdAt: {
+        type: sequelize_1.DataTypes.DATE,
+        defaultValue: Date.now,
     }
 });
 exports.default = Usuario;

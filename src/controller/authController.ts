@@ -34,9 +34,9 @@ export const postUsuario = async (req: Request, res: Response) => {
             })
         }
 
-      /*   const usuario = new Usuario(body);
+        const usuario = await Usuario.create(body);
         await usuario.save();
-        res.json(usuario); */
+        res.json(usuario); 
     } catch (error) {
         res.status(500).json({
             msg: 'Verificar campos'

@@ -35,9 +35,9 @@ exports.getClassificacaoById = getClassificacaoById;
 const postClassificacao = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
-        /*   const classificacao = new Classificacao(body);
-  await classificacao.save();
-  res.json(classificacao); */
+        const classificacao = yield classificacao_1.default.create(body);
+        yield classificacao.save();
+        res.json(classificacao);
     }
     catch (error) {
         res.status(500).json({

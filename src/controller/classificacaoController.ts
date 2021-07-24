@@ -23,9 +23,9 @@ export const getClassificacaoById = async (req: Request, res: Response) => {
 export const postClassificacao = async (req: Request, res: Response) => {
     const { body } = req;
     try {
-        /*   const classificacao = new Classificacao(body);
-  await classificacao.save();
-  res.json(classificacao); */
+        const classificacao = await Classificacao.create(body);
+        await classificacao.save();
+        res.json(classificacao); 
     } catch (error) {
         res.status(500).json({
             msg: 'Verificar campos'

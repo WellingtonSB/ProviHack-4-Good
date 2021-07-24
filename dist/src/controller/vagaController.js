@@ -35,9 +35,9 @@ exports.getVagaById = getVagaById;
 const postVaga = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
-        /*const vaga = new Vaga(body);
-        await vaga.save();
-        res.json(vaga);*/
+        const vaga = yield vaga_1.default.create(body);
+        yield vaga.save();
+        res.json(vaga);
     }
     catch (error) {
         res.status(500).json({

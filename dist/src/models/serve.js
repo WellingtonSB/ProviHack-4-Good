@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const usuarioRoutes_1 = __importDefault(require("../routes/usuarioRoutes"));
 const vagaRoutes_1 = __importDefault(require("../routes/vagaRoutes"));
+const classificacaoRoutes_1 = __importDefault(require("../routes/classificacaoRoutes"));
+const empresaRoutes_1 = __importDefault(require("../routes/empresaRoutes"));
 const cors_1 = __importDefault(require("cors"));
 const connection_1 = __importDefault(require("../db/connection"));
 class Server {
@@ -22,7 +24,8 @@ class Server {
         this.apiPaths = {
             usuarios: '/api/usuarios',
             vagas: '/vagas',
-            empresas: '/empresas'
+            empresas: '/empresas',
+            classificacao: '/classificacao'
         };
         this.app = express_1.default();
         this.port = process.env.PORT || '8080'; //valor nulo inicia a porta 8080
@@ -52,7 +55,8 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.usuarios, usuarioRoutes_1.default);
         this.app.use(this.apiPaths.vagas, vagaRoutes_1.default);
-        //this.app.use(this.apiPaths.empresas,userRoutes);
+        this.app.use(this.apiPaths.classificacao, classificacaoRoutes_1.default);
+        this.app.use(this.apiPaths.empresas, empresaRoutes_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {

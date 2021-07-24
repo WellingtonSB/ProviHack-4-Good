@@ -4,7 +4,8 @@ import db from '../db/connection';
 const Empresas  = db.define('Empresas ', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     nome: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        unique:true
     }, tamanho: {
         type: DataTypes.STRING
     }, receita: {

@@ -22,9 +22,9 @@ export const getVagaById = async (req: Request, res: Response) => {
 export const postVaga = async (req: Request, res: Response) => {
     const { body } = req;
     try {
-        /*const vaga = new Vaga(body);
+        const vaga = await Vaga.create(body);
         await vaga.save();
-        res.json(vaga);*/
+        res.json(vaga);
     } catch (error) {
         res.status(500).json({
             msg: 'Verificar campos'
