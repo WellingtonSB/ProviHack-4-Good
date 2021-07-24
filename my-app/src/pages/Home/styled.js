@@ -38,6 +38,7 @@ align-content: center;
 }
 .container {
     display: flex;
+    
 }
 
 .Estou-procurando-emprego {
@@ -95,6 +96,16 @@ align-content: center;
   letter-spacing: normal;
   text-align: center;
   color: #000077;
+}
+
+.bg-gradient{
+  min-height: 100vh;
+    min-width: 100vw;
+    background: rgb(130,185,255);
+    background: linear-gradient(180deg, rgba(93, 212, 255, 0.5) -53.39%, #FFFFFF 100%), #F2F2F2;
+
+    justify-content: center;
+    align-items: center;
 }
 
 `;
