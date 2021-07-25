@@ -1,5 +1,5 @@
 import dotenv  from 'dotenv';
-import Server from './src/models/serve';
+import Server from './src/server/serve';
 import express from 'express';
 
 const app = express();

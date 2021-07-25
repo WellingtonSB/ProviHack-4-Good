@@ -1,8 +1,8 @@
 import express,{Application} from 'express';
 import userRoutes from '../routes/usuarioRoutes';
 import vagasRoutes from '../routes/vagaRoutes';
-import avalEmpresaRoutes from '../routes/aval_empresa';
-import empressasRoutes from '../routes/empresaRoutes';
+import avalEmpresaRoutes from '../routes/avalEmpresaRoutes';
+import empressaRoutes from '../routes/empresaRoutes';
 import cors from 'cors';
 import db from '../db/connection';
 
@@ -12,9 +12,9 @@ class Server{
     private app:Application;
     private port: string;
     private apiPaths ={
-        usuarios:'/usuarios',
+        usuario:'/usuario',
         vagas:'/vagas',
-        empresas:'/empresas',
+        empresa:'/empresa',
         avaliacao:'/avaliacao'
     }
 
@@ -46,10 +46,10 @@ class Server{
     }
 
     routes(){
-        this.app.use(this.apiPaths.usuarios,userRoutes);
+        this.app.use(this.apiPaths.usuario,userRoutes);
         this.app.use(this.apiPaths.vagas,vagasRoutes);
         this.app.use(this.apiPaths.avaliacao,avalEmpresaRoutes);
-        this.app.use(this.apiPaths.empresas,empressasRoutes);
+        this.app.use(this.apiPaths.empresa,empressaRoutes);
     }
 
     listen(){

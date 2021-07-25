@@ -6,16 +6,16 @@ const Experiencia = db.define('experiencia', {
     empresa: {
         type: DataTypes.STRING,
     },
-    data_inicio: {
+    dataInicio: {
         type: DataTypes.DATE,
     },
-    data_termino: {
+    dataTermino: {
         type: DataTypes.DATE,
     },
-    emp_atual: {
+    empAtual: {
         type: DataTypes.TINYINT,
     },
-    emprego_atual: {
+    empregoAtual: {
         type: DataTypes.STRING,
     },
     cargo: {

@@ -1,51 +1,49 @@
 import { DataTypes } from 'sequelize';
 import db from '../db/connection';
 
-const Empresas  = db.define('Empresas ', {
+const Empresas  = db.define('empresas', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
-    email_empresa: {
+    emailEmpresa: {
         type: DataTypes.STRING,
-    }, nome_empresa: {
+    }, nomeEmpresa: {
         type: DataTypes.STRING,
-    }, tamanho: {
-        type: DataTypes.STRING
-    }, senha_empresa: {
+    }, senhaEmpresa: {
         type: DataTypes.STRING
     }, cnpj: {
         type: DataTypes.STRING
     }, descricao: {
         type: DataTypes.STRING
-    }, comite_lgbtquiapn: {
+    }, comiteLgbtquiapn: {
         type: DataTypes.TINYINT
-    }, funcionarios_comunid: {
+    }, funcionariosComunid: {
         type: DataTypes.TINYINT
     }, benefits: {
         type: DataTypes.TINYINT
-    }, empresa_validada: {
+    }, empresaValidada: {
         type: DataTypes.TINYINT
-    }, toilette_unis: {
+    }, toiletteUnis: {
         type: DataTypes.TINYINT
-    }, sinalizacao_desniveis: {
+    }, sinalizacaoDesniveis: {
         type: DataTypes.TINYINT
-    }, esp_cadeiras_rodas: {
+    }, espCadeirasRodas: {
         type: DataTypes.TINYINT
-    }, vagas_entradas: {
+    }, vagasEntradas: {
         type: DataTypes.TINYINT
-    }, rota_acessivel: {
+    }, rotaAcessivel: {
         type: DataTypes.TINYINT
-    }, vao_portas: {
+    }, vaoPortas: {
         type: DataTypes.TINYINT
-    }, sanitarios_rotas: {
+    }, sanitariosRotas: {
         type: DataTypes.TINYINT
-    }, mensagens_tdd: {
+    }, mensagensTdd: {
         type: DataTypes.TINYINT
-    }, mesas_acess: {
+    }, mesasAcess: {
         type: DataTypes.TINYINT
-    }, simbolo_acesso: {
+    }, simboloAcesso: {
         type: DataTypes.TINYINT
-    }, sinal_tatil: {
+    }, sinalTatil: {
         type: DataTypes.TINYINT
-    }, sinal_som: {
+    }, sinalSom: {
         type: DataTypes.TINYINT
     }, elevador: {
         type: DataTypes.TINYINT

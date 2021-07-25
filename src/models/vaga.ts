@@ -6,7 +6,7 @@ const Vaga = db.define('vaga', {
     nome: {
         type: DataTypes.STRING,
     },
-    descricao_vaga: {
+    descricaoVaga: {
         type: DataTypes.STRING,
     },
     beneficios: {
@@ -15,15 +15,11 @@ const Vaga = db.define('vaga', {
     salario: {
         type: DataTypes.STRING,
     },
-    link_site: {
+    linkSite: {
         type: DataTypes.STRING,
     },
-    aberta_fechada: {
+    abertaFechada: {
         type: DataTypes.TINYINT
-    },
-    createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: Date.now,
     }
 })
 

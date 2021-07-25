@@ -35,6 +35,16 @@ exports.getEmpressaById = getEmpressaById;
 const postEmpressa = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
+        const existeEmail = yield empressa_1.default.findOne({
+            where: {
+                email: body.email
+            }
+        });
+        if (existeEmail) {
+            return res.status(400).json({
+                msg: 'Email existente: ' + body.email
+            });
+        }
         const empressa = yield empressa_1.default.create(body);
         yield empressa.save();
         res.json(empressa);
@@ -53,7 +63,7 @@ const putEmpressa = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         const empressa = yield empressa_1.default.findByPk(id);
         if (!empressa) {
             return res.status(404).json({
-                msg: 'Não existe'
+                msg: 'empressa nao existe'
             });
         }
         yield empressa.update(body);

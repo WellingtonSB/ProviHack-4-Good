@@ -32,7 +32,6 @@ const getUsuarioById = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.getUsuarioById = getUsuarioById;
-//fazer um console.log(hac)
 const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
@@ -89,7 +88,6 @@ const deleteUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     res.json(usuario);
 });
 exports.deleteUsuario = deleteUsuario;
-//classe nao instanciada
 const inativaUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const usuario = yield usuario_1.default.findByPk(id);
@@ -98,7 +96,6 @@ const inativaUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function*
             msg: 'Usuario nao existe'
         });
     }
-    //status
     yield usuario.update({ status: false });
     res.json(usuario);
 });

@@ -34,7 +34,18 @@ const getVagaById = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.getVagaById = getVagaById;
 const postVaga = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
+    //criar um if que só permite que a empresa crie a vaga e seu cadastro estiver ok.
     try {
+        const existeVaga = yield vaga_1.default.findOne({
+            where: {
+                nome: body.nome
+            }
+        });
+        if (existeVaga) {
+            return res.status(400).json({
+                msg: 'Email existente: ' + body.nome
+            });
+        }
         const vaga = yield vaga_1.default.create(body);
         yield vaga.save();
         res.json(vaga);
@@ -87,7 +98,6 @@ const inativarVaga = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             msg: 'A vaga nao existe'
         });
     }
-    //status
     yield vaga.update({ status: false });
     res.json(vaga);
 });

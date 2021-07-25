@@ -22,27 +22,38 @@ export const getEmpressaById = async (req: Request, res: Response) => {
 
 export const postEmpressa = async (req: Request, res: Response) => {
     const { body } = req;
+    
     try {
+        const existeEmail = await Empressa.findOne({
+            where: {
+                email: body.email
+            }
+        });
+
+        if (existeEmail) {
+            return res.status(400).json({
+                msg: 'Email existente: ' + body.email
+            })
+        }
         const empressa = await Empressa.create(body);
         await empressa.save();
-        res.json(empressa);
-        
+        res.json(empressa); 
     } catch (error) {
         res.status(500).json({
             msg: 'Verificar campos'
         })
     }
+
 }
 
 export const putEmpressa = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { body } = req;
-
+    const { body } = req;    
     try {
         const empressa = await Empressa.findByPk(id);
         if (!empressa) {
             return res.status(404).json({
-                msg: 'Não existe'
+                msg: 'empressa nao existe'
             })
         }
         await empressa.update(body);

@@ -23,24 +23,25 @@ export const postVaga = async (req: Request, res: Response) => {
     const { body } = req;
     //criar um if que só permite que a empresa crie a vaga e seu cadastro estiver ok.
     try {
-        const existeEmail = await Vaga.findOne({
+        const existeVaga = await Vaga.findOne({
             where: {
-                email: body.email
+                nome: body.nome
             }
         });
 
-        if (existeEmail) {
+        if (existeVaga) {
             return res.status(400).json({
-                msg: 'Email existente: ' + body.email
+                msg: 'Email existente: ' + body.nome
             })
         }
         const vaga = await Vaga.create(body);
         await vaga.save();
         res.json(vaga); 
     } catch (error) {
-        res.status(500).json({
+
+     res.status(500).json({
             msg: 'Verificar campos'
-        })
+        }) 
     }
 }
 

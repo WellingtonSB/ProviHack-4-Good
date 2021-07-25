@@ -5,26 +5,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const connection_1 = __importDefault(require("../db/connection"));
-const Vaga = connection_1.default.define('vaga', {
+const Experiencia = connection_1.default.define('experiencia', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
-    nome: {
+    empresa: {
         type: sequelize_1.DataTypes.STRING,
     },
-    descricaoVaga: {
+    dataInicio: {
+        type: sequelize_1.DataTypes.DATE,
+    },
+    dataTermino: {
+        type: sequelize_1.DataTypes.DATE,
+    },
+    empAtual: {
+        type: sequelize_1.DataTypes.TINYINT,
+    },
+    empregoAtual: {
         type: sequelize_1.DataTypes.STRING,
     },
-    beneficios: {
-        type: sequelize_1.DataTypes.STRING,
-    },
-    salario: {
-        type: sequelize_1.DataTypes.STRING,
-    },
-    linkSite: {
-        type: sequelize_1.DataTypes.STRING,
-    },
-    abertaFechada: {
-        type: sequelize_1.DataTypes.TINYINT
-    }
+    cargo: {
+        type: sequelize_1.DataTypes.STRING
+    }, descricao: {
+        type: sequelize_1.DataTypes.STRING
+    } //extends usuario
 });
-exports.default = Vaga;
-//# sourceMappingURL=vaga.js.map
+exports.default = Experiencia;
+//# sourceMappingURL=experiencia.js.map
