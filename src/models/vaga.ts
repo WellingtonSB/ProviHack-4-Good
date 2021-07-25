@@ -18,11 +18,12 @@ const Vaga = db.define('vaga', {
     link_site: {
         type: DataTypes.STRING,
     },
-    status: {
-        type: DataTypes.BOOLEAN
+    aberta_fechada: {
+        type: DataTypes.TINYINT
     },
-    publicacao: {
-        type: DataTypes.TIME
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: Date.now,
     }
 })
 

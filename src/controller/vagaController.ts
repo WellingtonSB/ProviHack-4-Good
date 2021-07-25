@@ -21,10 +21,22 @@ export const getVagaById = async (req: Request, res: Response) => {
 
 export const postVaga = async (req: Request, res: Response) => {
     const { body } = req;
+    //criar um if que só permite que a empresa crie a vaga e seu cadastro estiver ok.
     try {
+        const existeEmail = await Vaga.findOne({
+            where: {
+                email: body.email
+            }
+        });
+
+        if (existeEmail) {
+            return res.status(400).json({
+                msg: 'Email existente: ' + body.email
+            })
+        }
         const vaga = await Vaga.create(body);
         await vaga.save();
-        res.json(vaga);
+        res.json(vaga); 
     } catch (error) {
         res.status(500).json({
             msg: 'Verificar campos'
@@ -55,14 +67,12 @@ export const putVaga = async (req: Request, res: Response) => {
 
 export const deleteVaga = async (req: Request, res: Response) => {
     const { id } = req.params;
-
     const vaga = await Vaga.findByPk(id);
     if (!vaga) {
         return res.status(404).json({
             msg: 'A vaga nao existe'
         })
     }
-
     await vaga.destroy();
     res.json(vaga);
 }
@@ -70,15 +80,12 @@ export const deleteVaga = async (req: Request, res: Response) => {
 //classe nao instanciada
 export const inativarVaga = async (req: Request, res: Response) => {
     const { id } = req.params;
-
     const vaga = await Vaga.findByPk(id);
     if (!vaga) {
         return res.status(404).json({
             msg: 'A vaga nao existe'
         })
     }
-
-    //status
     await vaga.update({ status: false })
     res.json(vaga);
 }

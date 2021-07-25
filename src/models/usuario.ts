@@ -12,7 +12,7 @@ const Usuario = db.define('Usuarie', {
     },
     email: {
         type: DataTypes.STRING,
-        unique:true,//unica
+        unique: true,//unico
     },
     senha: {
         type: DataTypes.STRING,
@@ -21,6 +21,9 @@ const Usuario = db.define('Usuarie', {
         type: DataTypes.DATE
     },
     id_genero: {
+        type: DataTypes.INTEGER
+    },
+    sexualidade: {
         type: DataTypes.INTEGER
     },
     etnia: {
@@ -32,25 +35,29 @@ const Usuario = db.define('Usuarie', {
     tipodeficiencia: {
         type: DataTypes.STRING
     },
-    experienciaTrabalho: {
+    cursos: {
         type: DataTypes.STRING
     },
-    telefone: {
+    telefonecontato: {
         type: DataTypes.STRING
     },
     deficiencia: {
+        type: DataTypes.TINYINT
+    },
+    linkedin: {
         type: DataTypes.STRING
     },
     estadoCivil: {
         type: DataTypes.STRING
+    }, area_atuacao: {
+        type: DataTypes.STRING
+    }, status: {
+        type: DataTypes.BOOLEAN
     },
-    createdAt:{
-        type:DataTypes.DATE,
-        defaultValue:Date.now,
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: Date.now,
     }
 })
-
-
-
 
 export default Usuario;

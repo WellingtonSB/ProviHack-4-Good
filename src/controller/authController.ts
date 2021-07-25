@@ -18,9 +18,11 @@ export const getUsuarioById = async (req: Request, res: Response) => {
     }
 
 }
-//fazer um console.log(hac)
+
+
 export const postUsuario = async (req: Request, res: Response) => {
     const { body } = req;
+    
     try {
         const existeEmail = await Usuario.findOne({
             where: {
@@ -33,7 +35,6 @@ export const postUsuario = async (req: Request, res: Response) => {
                 msg: 'Email existente: ' + body.email
             })
         }
-
         const usuario = await Usuario.create(body);
         await usuario.save();
         res.json(usuario); 
@@ -79,18 +80,15 @@ export const deleteUsuario = async (req: Request, res: Response) => {
     res.json(usuario);
 }
 
-//classe nao instanciada
+
 export const inativaUsuario = async (req: Request, res: Response) => {
     const { id } = req.params;
-
     const usuario = await Usuario.findByPk(id);
     if (!usuario) {
         return res.status(404).json({
             msg: 'Usuario nao existe'
         })
     }
-    
-    //status
     await usuario.update({status:false})
     res.json(usuario);
 }
