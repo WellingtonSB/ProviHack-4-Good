@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderArea = styled.div`
+<<<<<<< HEAD
   
 
   display: flex;
@@ -8,6 +9,11 @@ export const HeaderArea = styled.div`
   width: 1106px;
   height: 20px;
   margin: 0 167px 304.2px 32px;
+=======
+  width: 90%;
+  height: 80px;
+  margin: 0 167px 100px 32px;
+>>>>>>> 63b892d33d1794445997efd7d7b5226259ae0a90
   padding: 13px 0;
   margin-bottom: 20px;
 
@@ -20,8 +26,8 @@ export const HeaderArea = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin: 5px 0 5px 262px;
+  // gap: 10px;
+  // margin: 5px 0 5px 262px;
   padding: 10px;
   border-radius: 30px;
   border: solid 1px #000077;

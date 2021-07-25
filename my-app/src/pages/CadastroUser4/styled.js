@@ -56,7 +56,7 @@ align-content: center;
   text-align: left;
   color: #000000;
 }
-}
+
 .Rectangle-19 {
   width: 22.125rem;
   height: 2.75rem;

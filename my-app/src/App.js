@@ -14,7 +14,10 @@ const Page = (props) => {
     <BrowserRouter>
     <Template>
       <Header />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 63b892d33d1794445997efd7d7b5226259ae0a90
       <Routes />
 
     </Template>
@@ -22,6 +25,10 @@ const Page = (props) => {
   );
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 63b892d33d1794445997efd7d7b5226259ae0a90
 const mapDispatchToProps = (dispatch) => {
   return {
 
