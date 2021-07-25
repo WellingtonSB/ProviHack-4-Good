@@ -4,31 +4,6 @@ import { HeaderArea } from './styled';
 const Header = () => {
     return(
         <HeaderArea>
-<<<<<<< HEAD
-            <div className="container">
-                <div className="logo">
-                    <img src="/imags/LacreiRedondo.png"/>
-                </div>
-                <nav>
-            <ul>
-                <li>
-                    <a className="a">Lacrei</a>
-                </li>
-                <li>
-                <a className="a">Saúde</a>
-                </li>
-                <li>
-                <a className="a">Direito</a>
-                </li>
-                <li>
-                <a className="a">Oportunidades</a>
-                    
-                </li>
-            </ul>
-            </nav>
-            <button src="" className="BTN-Entrar">Entrar</button>
-            </div>
-=======
 
 <nav class="navbar navbar-expand-lg navbar-light ">
   <div class="container-fluid">
@@ -57,7 +32,6 @@ const Header = () => {
     </div>
   </div>
 </nav>
->>>>>>> 63b892d33d1794445997efd7d7b5226259ae0a90
 
             
         </HeaderArea>

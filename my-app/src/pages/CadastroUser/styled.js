@@ -45,7 +45,7 @@ align-content: center;
   border: solid 1px #000077;
   background-color: rgba(191, 219, 255, 0.14);
 }
-}
+
 .AreainputPass {
   width: 28rem;
   height: 1,75rem;
