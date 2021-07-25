@@ -1,10 +1,48 @@
 import React from "react";
 import { PageContainer } from "../../components/MainComponents";
 import { PageArea } from "../CadastroEmpresa/styled";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import  useAPI from "../../helpers/LacreiApi";
+import { doLogin } from "../../helpers/AuthHandler"
 
 
 const Page = () => {
+
+  const api = useAPI();
+
+    const [name, setName] = useState('');
+    const [stateLoc, setStateLoc] = useState('');
+    const [stateList, setStateList] = useState([]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [disabled, setDisabled] = useState(false);
+    const [error, setError] = useState('');
+
+    useEffect(()=>{
+        const getStates = async () => {
+            const slist = await api.getStates();
+            setStateList(slist);
+
+        }
+        getStates();
+    }, []);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setDisabled(true);
+        setError('');
+
+        if(password !== confirmPassword) {
+            setError('Senhas não confere');
+            setDisabled(false)
+            return;
+        }
+
+        const json = await api.register(name, email, password, stateLoc);
+
+
+
   return (
     <PageContainer>
       <PageArea>
@@ -15,7 +53,7 @@ const Page = () => {
           juntes?
         </h2>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label font1">
               Email
@@ -26,6 +64,10 @@ const Page = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="meu@email.com"
+              disabled={disabled}
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
+              required
             />
           </div>
           <div class="mb-3">
@@ -37,16 +79,20 @@ const Page = () => {
               class="form-control"
               id="exampleInputPassword1"
               placeholder="Insira sua senha"
+              disabled={disabled}  
+              value={password}
+              onChange={e=>setPassword(e.target.value)}
+              required
             />
           </div>
         </form>
-        <Link to='/empresacadastro2'>
+        
           <div className="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary">
               Continuar
             </button>
           </div>
-        </Link>
+      
 
         <p> Passo 1 de 3 </p>
       </PageArea>

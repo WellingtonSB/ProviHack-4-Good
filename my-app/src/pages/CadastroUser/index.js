@@ -1,49 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageContainer } from '../../components/MainComponents';
 import { PageArea } from './styled';
+import useAPI from '../../helpers/LacreiApi'
+import { doLogin } from '../../helpers/AuthHandler';
+
 
 const Page = () => {
+
+    const api =useAPI();
+
+    const [ name, setName ] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [disabled, setDisabled] = useState(false);
+    const [error, setError] = useState('');
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setDisabled(true);
+        setError('');
+
+        const json = await api.registerUser(name, email, password);
+        console.log(json);
+
+       if(json.error) {
+            setError(json.error);
+        } else {
+            doLogin(json.token);
+            window.location.href = '/';
+        }
+        window.location.href = '/';
+
+        setDisabled(false);
+
+        }
+
+
+
+
+    
     return (
         <PageContainer>
             <PageArea >
             <h1 className="Title">Cadastro</h1>
 
             <div className="container">
-            <form>
+            <form onSubmit={handleSubmit}>
                     <label className="area">
                         <div className="area--title">Nome*</div>
                         <div className="area--input">
-                            <input 
-                            type="text"
-                            class="Rectangle-19"
-                         //   id="setmail"
-                            aria-describedby="emailHelp"
-                            placeholder="Como você se chama?"/>
+                        <input 
+                            className="Rectangle-19 "
+                            type="text" 
+                            disabled={disabled}
+                            value={name}
+                            onChange={e=>setName(e.target.value)}
+                            required
+                            />
                         </div>
                     </label>
                     <label className="area">
                         <div className="area--title">Email*</div>
                         <div className="area--input">
-                            <input 
-                            type="email"
-                            class="Rectangle-19"
-                           // id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                            placeholder="meu@email.com"
-                    
+                        <input 
+                           className="Rectangle-19"
+                            type="email" 
+                            disabled={disabled}
+                            value={email}
+                            onChange={e=>setEmail(e.target.value)}
+                            required
                             />
                         </div>
                     </label>
                     <label className="area">
                         <div className="area--title">Senha*</div>
                         <div className="area--input">
-                            <input 
-                            type="password"
-                            class="Rectangle-19"
-                            //id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                            placeholder="4897845jkfsdf"
+                        <input 
+                            className="Rectangle-19"
+                            type="password" 
+                            disabled={disabled}  
+                            value={password}
+                            onChange={e=>setPassword(e.target.value)}
+                            required
                             />
                         </div>
                     </label>
@@ -51,7 +91,7 @@ const Page = () => {
                     <label className="area">
                         <div className="area--title"></div>
                         <div className="Cadastrar">
-                            <Link to="/usercadastro1"><button onClick="" className="Frame-2 Cadastrar"  >Cadastrar</button> </Link>
+                            <button onClick="" disabled={disabled} className="Frame-2 Cadastrar"  >Cadastrar</button>
                         </div>
                         <p className="politica">Ao clicar no botão "Cadastrar", você está criando uma conta na Lacrei Oportunidades e concorda com os nossos Termos de Uso e Privacidade.</p>
                     </label>
