@@ -15,7 +15,7 @@ align-content: center;
   font-style: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  text-align: center;
+  text-align: left;
   color: #000000;
 }
 .SubTitle{
@@ -37,7 +37,7 @@ align-content: center;
 }
 
 .font1{
-  width: 8.063rem;
+  // width: 8.063rem;
   height: 0.938rem;
   margin: 0 36.688rem 0.75rem 0.875rem;
   font-family: Nunito;
@@ -49,6 +49,49 @@ align-content: center;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+}
+
+.AreainputPass {
+  width: 28rem;
+  height: 1,75rem;
+  margin: 0.75rem 0 0;
+  padding: 1.063rem 8.782rem 1rem 1.033rem;
+  border-radius: 20px;
+  border: solid 1px #000077;
+  background-color: rgba(191, 219, 255, 0.14);
+}
+
+.concordo{
+  width: 28rem;
+}
+
+.Frame-2 {
+  width: 28rem;
+  height: 2.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #000077;
+}
+
+.Cadastrar {
+  width: 28rem;
+  height: 2.75rem;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  
 }
 
 

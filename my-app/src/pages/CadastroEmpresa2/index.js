@@ -1,53 +1,37 @@
 import React from "react";
 import { PageContainer } from "../../components/MainComponents";
-import { PageArea } from "../Home/styled";
+import { PageArea } from "../CadastroEmpresa2/styled";
 import { Link } from "react-router-dom"
 
 const Page = () => {
   return (
     <PageContainer>
       <PageArea>
-        <h1 className="Title">Lacrou, Empresa!</h1>
-        <h2 className="SubTitle">
-          {" "}
-          Precisamos de alguns dados seus para realizar o cadastro. Vamos
-          juntes?
-        </h2>
+      
 
         <form>
           <div class="mb-3">
-            <label for="nomeEmpresa" class="form-label">
-              Nome da Empresa
-            </label>
-            <input
-              type="nomeEmpresa"
-              class="form-control"
-              id="nomeEmpresa"
-              aria-describedby="nomeEmpresa"
-              placeholder="Nome"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="descricao" class="form-label">
+            <label for="descricao" class="form-label descricao">
               Breve Descrição da Empresa
             </label>
             <textarea
               type="text"
-              class="form-control"
+              class="form-control AreainputPass"
               id="descricao"
               placeholder="Descrição"
+
             />
           </div>
         </form>
         <Link to='/empresacadastro3'>
           <div className="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn Frame-2 Cadastrar">
               Continuar
             </button>
           </div>
         </Link>
 
-        <p> Passo 2 de 3 </p>
+        <p className="passo"> Passo 2 de 3 </p>
       </PageArea>
     </PageContainer>
   );
