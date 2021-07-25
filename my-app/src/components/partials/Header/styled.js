@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const HeaderArea = styled.div`
+  
+
+  display: flex;
+  align-items: center;
   width: 1106px;
-  height: 80px;
+  height: 20px;
   margin: 0 167px 304.2px 32px;
   padding: 13px 0;
+  margin-bottom: 20px;
 
   
 
   .BTN-Entrar {
-  width: 166px;
-  height: 44px;
+  width: 10.375rem;
+  height: 2.75rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -46,20 +51,15 @@ a {
 .logo {
     flex: 1;
     display: flex;
-    align-items: center;
-    height: 60px;
-
-    .logo-1,
-    .logo-2,
-    .logo-3 {
-        font-size: 27px;
-        font-weight: bold;
-    }
-    .logo-1{ color:#FF0000; }
-    .logo-2{ color:#00FF00; }
-    .logo-3{ color:#0000FF; }
-
+    width: 3.375rem;
+     height: 3.375rem;
+     flex-grow: 0;
+     margin: 0 14.25rem 0 0;
+     padding: 0.387rem 0 0;
 }
+
+    
+    
 
 nav {
     padding-top:10px;

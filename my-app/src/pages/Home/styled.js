@@ -5,7 +5,11 @@ export const SearchArea = styled.div`
 
 `
 export const PageArea = styled.div`
-
+margin-top: 30px;
+//width: 85.375rem;
+height: 48rem;
+padding-top: 30px;
+margin-top: 30px;
 align-items: center;
 align-content: center;
 .Title {

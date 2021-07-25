@@ -5,6 +5,9 @@ const Header = () => {
     return(
         <HeaderArea>
             <div className="container">
+                <div className="logo">
+                    <img src="/imags/LacreiRedondo.png"/>
+                </div>
                 <nav>
             <ul>
                 <li>

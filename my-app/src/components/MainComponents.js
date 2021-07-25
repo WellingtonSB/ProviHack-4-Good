@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Template = styled.body`
-  background-image: image("");
+background: rgb(93,212,255);
+background: linear-gradient(180deg, rgba(93,212,255,0.5), #ffffff);
  
 `;
 
 export const PageContainer = styled.div`
+
 max-width:1000px;
 margin:auto;
 `;
