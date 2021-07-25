@@ -6,6 +6,42 @@ export const getAllVagas = async (req: Request, res: Response) => {
     res.json(vaga);
 }
 
+export const getByNome = async (req: Request, res: Response) => {
+
+    const { nome } = req.params;
+
+
+    try {
+        /*      const vagaNome = await Vaga.findOne({
+               where: {
+                   nome
+               }
+       
+           });
+            const vagaNome = await Vaga.findAll({
+               where: Sequelize.and(
+                 { nome }
+               )
+             }); */
+
+        const vagaNome = await Vaga.findAll({
+            where: {
+                nome
+            }
+        });
+
+
+        if (!vagaNome) {
+            return res.status(400).json({
+                msg: 'vaga não cadastrada: ' + nome
+            })
+        }
+        res.json(vagaNome);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getVagaById = async (req: Request, res: Response) => {
     const { id } = req.params;
     const vaga = await Vaga.findByPk(id);
@@ -21,7 +57,6 @@ export const getVagaById = async (req: Request, res: Response) => {
 
 export const postVaga = async (req: Request, res: Response) => {
     const { body } = req;
-    //criar um if que só permite que a empresa crie a vaga e seu cadastro estiver ok.
     try {
         const existeVaga = await Vaga.findOne({
             where: {
@@ -36,12 +71,12 @@ export const postVaga = async (req: Request, res: Response) => {
         }
         const vaga = await Vaga.create(body);
         await vaga.save();
-        res.json(vaga); 
+        res.json(vaga);
     } catch (error) {
 
-     res.status(500).json({
+        res.status(500).json({
             msg: 'Verificar campos'
-        }) 
+        })
     }
 }
 

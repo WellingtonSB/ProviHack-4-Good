@@ -12,13 +12,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.inativarVaga = exports.deleteVaga = exports.putVaga = exports.postVaga = exports.getVagaById = exports.getAllVagas = void 0;
+exports.inativarVaga = exports.deleteVaga = exports.putVaga = exports.postVaga = exports.getVagaById = exports.getByNome = exports.getAllVagas = void 0;
 const vaga_1 = __importDefault(require("../models/vaga"));
 const getAllVagas = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const vaga = yield vaga_1.default.findAll();
     res.json(vaga);
 });
 exports.getAllVagas = getAllVagas;
+const getByNome = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { nome } = req.params;
+    try {
+        /*      const vagaNome = await Vaga.findOne({
+               where: {
+                   nome
+               }
+       
+           });
+            const vagaNome = await Vaga.findAll({
+               where: Sequelize.and(
+                 { nome }
+               )
+             }); */
+        const vagaNome = yield vaga_1.default.findAll({
+            where: {
+                nome
+            }
+        });
+        if (!vagaNome) {
+            return res.status(400).json({
+                msg: 'vaga não cadastrada: ' + nome
+            });
+        }
+        res.json(vagaNome);
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+exports.getByNome = getByNome;
 const getVagaById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const vaga = yield vaga_1.default.findByPk(id);
@@ -34,7 +65,6 @@ const getVagaById = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.getVagaById = getVagaById;
 const postVaga = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
-    //criar um if que só permite que a empresa crie a vaga e seu cadastro estiver ok.
     try {
         const existeVaga = yield vaga_1.default.findOne({
             where: {

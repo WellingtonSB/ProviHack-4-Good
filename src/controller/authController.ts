@@ -19,7 +19,6 @@ export const getUsuarioById = async (req: Request, res: Response) => {
 
 }
 
-
 export const postUsuario = async (req: Request, res: Response) => {
     const { body } = req;
     

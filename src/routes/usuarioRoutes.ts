@@ -9,4 +9,5 @@ router.post('/criar',postUsuario);
 router.put('/atualizar/:id',putUsuario);
 router.delete('/deletar/:id',deleteUsuario);
 
+
 export default router;
