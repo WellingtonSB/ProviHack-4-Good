@@ -1,27 +1,18 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.inativaUsuario = exports.deleteUsuario = exports.putUsuario = exports.postUsuario = exports.getUsuarioById = exports.getAllUsuarios = void 0;
 const usuario_1 = __importDefault(require("../models/usuario"));
-const getAllUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const usuario = yield usuario_1.default.findAll();
+const getAllUsuarios = async (req, res) => {
+    const usuario = await usuario_1.default.findAll();
     res.json(usuario);
-});
+};
 exports.getAllUsuarios = getAllUsuarios;
-const getUsuarioById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getUsuarioById = async (req, res) => {
     const { id } = req.params;
-    const usuario = yield usuario_1.default.findByPk(id);
+    const usuario = await usuario_1.default.findByPk(id);
     if (usuario) {
         res.json(usuario);
     }
@@ -30,12 +21,12 @@ const getUsuarioById = (req, res) => __awaiter(void 0, void 0, void 0, function*
             msg: `{id} não existe no banco de dados`
         });
     }
-});
+};
 exports.getUsuarioById = getUsuarioById;
-const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const postUsuario = async (req, res) => {
     const { body } = req;
     try {
-        const existeEmail = yield usuario_1.default.findOne({
+        const existeEmail = await usuario_1.default.findOne({
             where: {
                 email: body.email
             }
@@ -45,8 +36,8 @@ const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
                 msg: 'Email existente: ' + body.email
             });
         }
-        const usuario = yield usuario_1.default.create(body);
-        yield usuario.save();
+        const usuario = await usuario_1.default.create(body);
+        await usuario.save();
         res.json(usuario);
     }
     catch (error) {
@@ -54,19 +45,19 @@ const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             msg: 'Verificar campos'
         });
     }
-});
+};
 exports.postUsuario = postUsuario;
-const putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const putUsuario = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const usuario = yield usuario_1.default.findByPk(id);
+        const usuario = await usuario_1.default.findByPk(id);
         if (!usuario) {
             return res.status(404).json({
                 msg: 'Usuario nao existe'
             });
         }
-        yield usuario.update(body);
+        await usuario.update(body);
         res.json(usuario);
     }
     catch (error) {
@@ -74,30 +65,30 @@ const putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             msg: 'Verificar campos'
         });
     }
-});
+};
 exports.putUsuario = putUsuario;
-const deleteUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const deleteUsuario = async (req, res) => {
     const { id } = req.params;
-    const usuario = yield usuario_1.default.findByPk(id);
+    const usuario = await usuario_1.default.findByPk(id);
     if (!usuario) {
         return res.status(404).json({
             msg: 'Usuario nao existe'
         });
     }
-    yield usuario.destroy();
+    await usuario.destroy();
     res.json(usuario);
-});
+};
 exports.deleteUsuario = deleteUsuario;
-const inativaUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const inativaUsuario = async (req, res) => {
     const { id } = req.params;
-    const usuario = yield usuario_1.default.findByPk(id);
+    const usuario = await usuario_1.default.findByPk(id);
     if (!usuario) {
         return res.status(404).json({
             msg: 'Usuario nao existe'
         });
     }
-    yield usuario.update({ status: false });
+    await usuario.update({ status: false });
     res.json(usuario);
-});
+};
 exports.inativaUsuario = inativaUsuario;
 //# sourceMappingURL=authController.js.map

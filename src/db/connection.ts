@@ -2,7 +2,7 @@ import {Sequelize} from 'sequelize';
 
 //db,usuario,senha
 const db = new Sequelize('lacrei','root','neopc121', {
-    host:'localhost',
+    host:'hack4good-lacrei.cjjqi7n90t3t.us-east-2.rds.amazonaws.com',
     dialect:'mysql',
     //logging:false
 });
