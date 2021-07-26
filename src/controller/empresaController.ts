@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Empressa from '../models/empressa';
+import Empressa from '../models/empresa';
 
 
 export const getAllEmpressas = async (req: Request, res: Response) => {

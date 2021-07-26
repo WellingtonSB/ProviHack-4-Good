@@ -9,7 +9,7 @@ const Aval_empresa = db.define('avalEmpresa', {
     resumo: {
         type: DataTypes.STRING
     },
-    ambiente_inclus: {
+    ambienteInclus: {
         type: DataTypes.TINYINT
     }, comiteLgbtquiapn: {
         type: DataTypes.TINYINT

@@ -31,7 +31,7 @@ export const postVaga = async (req: Request, res: Response) => {
 
         if (existeVaga) {
             return res.status(400).json({
-                msg: 'Email existente: ' + body.nome
+                msg: 'Vaga existente: ' + body.nome
             })
         }
         const vaga = await Vaga.create(body);

@@ -3,21 +3,21 @@ import db from '../db/connection';
 
 const Empresas  = db.define('empresas', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
-    emailEmpresa: {
+    email: {
         type: DataTypes.STRING,
-    }, nomeEmpresa: {
+    }, nome: {
         type: DataTypes.STRING,
-    }, senhaEmpresa: {
+    }, senha: {
         type: DataTypes.STRING
     }, cnpj: {
         type: DataTypes.STRING
     }, descricao: {
         type: DataTypes.STRING
-    }, comiteLgbtquiapn: {
+    }, comite: {
         type: DataTypes.TINYINT
-    }, funcionariosComunid: {
+    }, funcionarios: {
         type: DataTypes.TINYINT
-    }, benefits: {
+    }, beneficios: {
         type: DataTypes.TINYINT
     }, empresaValidada: {
         type: DataTypes.TINYINT
