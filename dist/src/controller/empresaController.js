@@ -4,15 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteEmpressa = exports.putEmpressa = exports.postEmpressa = exports.getEmpressaById = exports.getAllEmpressas = void 0;
-const empressa_1 = __importDefault(require("../models/empressa"));
+const empresa_1 = __importDefault(require("../models/empresa"));
 const getAllEmpressas = async (req, res) => {
-    const empressa = await empressa_1.default.findAll();
+    const empressa = await empresa_1.default.findAll();
     res.json(empressa);
 };
 exports.getAllEmpressas = getAllEmpressas;
 const getEmpressaById = async (req, res) => {
     const { id } = req.params;
-    const empressa = await empressa_1.default.findByPk(id);
+    const empressa = await empresa_1.default.findByPk(id);
     if (empressa) {
         res.json(empressa);
     }
@@ -26,7 +26,7 @@ exports.getEmpressaById = getEmpressaById;
 const postEmpressa = async (req, res) => {
     const { body } = req;
     try {
-        const existeEmail = await empressa_1.default.findOne({
+        const existeEmail = await empresa_1.default.findOne({
             where: {
                 email: body.email
             }
@@ -36,7 +36,7 @@ const postEmpressa = async (req, res) => {
                 msg: 'Email existente: ' + body.email
             });
         }
-        const empressa = await empressa_1.default.create(body);
+        const empressa = await empresa_1.default.create(body);
         await empressa.save();
         res.json(empressa);
     }
@@ -51,7 +51,7 @@ const putEmpressa = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const empressa = await empressa_1.default.findByPk(id);
+        const empressa = await empresa_1.default.findByPk(id);
         if (!empressa) {
             return res.status(404).json({
                 msg: 'empressa nao existe'
@@ -69,7 +69,7 @@ const putEmpressa = async (req, res) => {
 exports.putEmpressa = putEmpressa;
 const deleteEmpressa = async (req, res) => {
     const { id } = req.params;
-    const empressa = await empressa_1.default.findByPk(id);
+    const empressa = await empresa_1.default.findByPk(id);
     if (!empressa) {
         return res.status(404).json({
             msg: 'Não existe.'

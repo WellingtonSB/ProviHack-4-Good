@@ -34,7 +34,7 @@ const postVaga = async (req, res) => {
         });
         if (existeVaga) {
             return res.status(400).json({
-                msg: 'Email existente: ' + body.nome
+                msg: 'Vaga existente: ' + body.nome
             });
         }
         const vaga = await vaga_1.default.create(body);

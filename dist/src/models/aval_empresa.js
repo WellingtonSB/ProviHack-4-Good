@@ -13,7 +13,7 @@ const Aval_empresa = connection_1.default.define('avalEmpresa', {
     resumo: {
         type: sequelize_1.DataTypes.STRING
     },
-    ambiente_inclus: {
+    ambienteInclus: {
         type: sequelize_1.DataTypes.TINYINT
     }, comiteLgbtquiapn: {
         type: sequelize_1.DataTypes.TINYINT
