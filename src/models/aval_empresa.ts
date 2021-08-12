@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import db from '../db/connection';
 
-const Aval_empresa = db.define('avalEmpresa', {
+const Aval_empresa = db.define('avalEmpresas', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     empresa: {
         type: DataTypes.BIGINT
@@ -21,7 +21,7 @@ const Aval_empresa = db.define('avalEmpresa', {
         type: DataTypes.TINYINT
     }, culturaValores: {
         type: DataTypes.TINYINT
-    }, toiletteUnix: {
+    }, toiletteUnis: {
         type: DataTypes.TINYINT
     }, qualidadeVida: {
         type: DataTypes.TINYINT

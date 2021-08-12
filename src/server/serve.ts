@@ -35,8 +35,9 @@ class Server{
             throw new Error(error);
         }
     }
-
+ 
     midllewares(){
+
         //cors
         this.app.use(cors());
         //ler body

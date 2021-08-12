@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import db from '../db/connection';
 
 
-const Usuario = db.define('Usuario', {
+const Usuario = db.define('usuarios', {
     //id: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true },
     nome: {
         type: DataTypes.STRING
@@ -49,9 +49,11 @@ const Usuario = db.define('Usuario', {
     },
     estadoCivil: {
         type: DataTypes.STRING
-    }, areaAtuacao: {
+    }, 
+    areaAtuacao: {
         type: DataTypes.STRING
-    }, status: {
+    }, 
+    status: {
         type: DataTypes.BOOLEAN
     },
     createdAt: {
